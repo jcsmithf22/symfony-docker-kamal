@@ -1,0 +1,72 @@
+:root {
+
+    /* Larger sizing units */
+    --smallest: 24rem;
+    --smaller: 32rem;
+    --medium: 40rem;
+    --larger: 48rem;
+
+    /* Spacing sizes */
+    --default-size: 0.5rem;
+    --double-size: calc(var(--default-size) * 2);
+    --half-size: calc(var(--default-size) / 2);
+    --quad-size: calc(var(--default-size) * 4);
+    --quarter-size: calc(var(--default-size) / 4);
+}
+
+.flex {
+    display: flex;
+    gap: var(--gap);
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.hstack {
+    display: flex;
+    flex-direction: row;
+    row-gap: var(--gap, var(--default-gap));
+    column-gap: var(--gap, var(--default-gap));
+    max-width: var(--width, none);
+}
+
+.vstack {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gap, var(--default-gap));
+    column-gap: var(--gap, var(--default-gap));
+    max-width: var(--width, none);
+}
+
+.gap-half {
+    --gap: var(--half-size);
+}
+
+.gap {
+    --gap: var(--default-size);
+}
+
+.gap-double {
+    --gap: var(--double-size);
+}
+
+.smallest {
+    --width: var(--smallest);
+}
+
+.smaller {
+    --width: var(--smaller);
+}
+
+.medium {
+    --width: var(--medium);
+}
+
+.larger {
+    --width: var(--larger);
+}

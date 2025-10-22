@@ -5,6 +5,8 @@
  * which should already be in your base.html.twig.
  */
 import './styles/_reset.css';
+import './styles/utilities.css';
+import './styles/base.css';
 import './styles/app.css';
 
 import './bootstrap.js';

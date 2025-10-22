@@ -13,6 +13,6 @@ export default class extends Controller {
     connect() {
         setTimeout(() => {
             this.element.textContent = 'Hello Stimulus! Edit me in assets/controllers/hello_controller.js';
-        }, 1000);
+        }, 200);
     }
 }
