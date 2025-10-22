@@ -15,3 +15,4 @@
 /public/assets/
 /assets/vendor/
 ###< symfony/asset-mapper ###
+.php-cs-fixer.cache

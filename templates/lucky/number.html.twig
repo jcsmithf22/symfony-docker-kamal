@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div>
-    <h1>Your lucky number is {{ number }}</h1>
-    <h2>My subtitle</h2>
+<div class="vstack gap-none">
+    <div class="padding-double">
+        <h1>Your lucky number is {{ number }}</h1>
+        <h2>My subtitle</h2>
+    </div>
+    <div class="divider-block"></div>
+    <div class="vstack smallest padding-double">
+        <label for="input">This is a label</label>
+        <input id="input" type="text">
+        <button>Submit</button>
+    </div>
 </div>
-<div data-controller='hello'>
-    Loading...
-</div>
-<div class="vstack smallest">
-    <label>This is a label</label>
-    <input type="text">
-</div>
+<a class="margin-block-start" href="{{ path('app_lucky_sentence') }}">lucky sentence</a>
 {% endblock %}

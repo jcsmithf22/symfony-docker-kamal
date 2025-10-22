@@ -17,4 +17,21 @@ class LuckyController extends AbstractController
             'number' => $number,
         ]);
     }
+
+    #[Route('/lucky/sentence')]
+    public function sentence(): Response
+    {
+        $sentences = [
+            'Today is your lucky day!',
+            'Fortune favors the bold.',
+            'Good things come to those who wait.',
+            'The best is yet to come.',
+            'Believe in yourself and magic will happen.'
+        ];
+        $selectedSentence = $sentences[array_rand($sentences)];
+
+        return $this->render('lucky/sentence.html.twig', [
+            'sentence' => $selectedSentence,
+        ]);
+    }
 }

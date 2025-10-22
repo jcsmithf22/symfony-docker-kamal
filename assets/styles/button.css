@@ -1,0 +1,21 @@
+:where(button) {
+    appearance: none;
+    border: none;
+    width: fit-content;
+    padding: 0;
+    padding-block: var(--half-size);
+    padding-inline: var(--default-size);
+    margin: 0;
+    background-color: var(--color-primary);
+    color: var(--color-primary-content);
+    border-radius: var(--small-radius);
+
+    &:hover {
+        filter: brightness(0.7);
+    }
+
+    &:focus-visible {
+        outline: var(--color-primary) solid 1px;
+        outline-offset: 2px;
+    }
+}

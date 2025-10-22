@@ -1,0 +1,42 @@
+:where(input) {
+    /* Input sizing units */
+    --smallest: 16rem;
+    --smaller: 24rem;
+    --medium: 32rem;
+    --larger: 40rem;
+
+    border: none;
+    width: var(--input-width, 100%);
+    padding: 0;
+    padding-block: var(--default-size);
+    padding-inline: var(--default-size);
+    margin: 0;
+    background-color: var(--color-almost-background);
+    color: var(--color-primary);
+    border-radius: var(--small-radius);
+
+    &:focus-visible {
+        outline: var(--color-primary) solid 1px;
+        outline-offset: 2px;
+    }
+
+    &.smallest {
+        --input-width: var(--smallest);
+    }
+
+    &.smaller {
+        --input-width: var(--smaller);
+    }
+
+    &.medium {
+        --input-width: var(--medium);
+    }
+
+    &.larger {
+        --input-width: var(--larger);
+    }
+}
+
+:where(label) {
+    color: var(--color-background-content);
+}

@@ -1,0 +1,14 @@
+:root {
+    --lch-black: 0% 0 0;
+    --lch-white: 100% 0 0;
+    --lch-gray: 96% 0.005 96;
+    --lch-gray-dark: 92% 0.005 96;
+    --lch-gray-darker: 75% 0.005 96;
+    --lch-gray-darkest: 25% 0.005 96;
+
+    --color-almost-background: oklch(var(--lch-gray-darkest));
+    --color-background: oklch(var(--lch-black));
+    --color-background-content: oklch(var(--lch-white));
+    --color-primary: oklch(var(--lch-white));
+    --color-primary-content: oklch(var(--lch-black));
+}
