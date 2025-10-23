@@ -110,6 +110,12 @@
     }
 }
 
+@container main (width > 88rem) {
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
 /*This last one needs work*/
 /*@container main (width > 88rem) {
     .grid {
