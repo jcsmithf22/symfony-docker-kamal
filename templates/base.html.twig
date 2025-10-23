@@ -13,19 +13,19 @@
         {% endblock %}
     </head>
     <body>
-        <div class="container bordered extra-large">
+        <section class="sidebar" data-open="true">
+        </section>
+        <main class="bordered">
             {% block navigation %}
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
+                <div class="nav">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
             {% endblock %}
-            <main>
-                {% block body %}{% endblock %}
-            </main>
-        <div>
+            {% block body %}{% endblock %}
+        </main>
     </body>
 </html>

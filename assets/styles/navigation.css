@@ -1,4 +1,4 @@
-:where(nav) {
+.nav {
     border-block-end: 1px solid var(--color-almost-background);
     padding: var(--double-size);
 

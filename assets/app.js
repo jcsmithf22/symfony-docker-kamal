@@ -11,6 +11,7 @@ import "./styles/base.css";
 import "./styles/button.css";
 import "./styles/input.css";
 import "./styles/navigation.css";
+import "./styles/sidebar.css";
 import "./styles/app.css";
 
 import "./bootstrap.js";

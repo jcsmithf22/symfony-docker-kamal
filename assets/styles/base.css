@@ -17,14 +17,15 @@ body {
     margin: 0;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
-    & > div {
-        flex-grow: 1;
-        margin-block-end: var(--quad-size);
-    }
+    width: 100%;
 }
 
 :where(a) {
     display: inline-block;
+}
+
+:where(main) {
+    width: 100%;
 }

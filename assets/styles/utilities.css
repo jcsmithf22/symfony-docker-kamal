@@ -63,8 +63,20 @@
 
     &.bordered {
         border: 1px solid var(--color-almost-background);
-        border-top: none;
+        border-block-start: none;
     }
+}
+
+.bordered-inline {
+    border-inline: 1px solid var(--color-almost-background);
+}
+
+.bordered-inline-end {
+    border-inline-end: 1px solid var(--color-almost-background);
+}
+
+.bordered-inline-start {
+    border-inline-start: 1px solid var(--color-almost-background);
 }
 
 .hstack {
