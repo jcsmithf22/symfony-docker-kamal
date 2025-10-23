@@ -92,4 +92,23 @@ final class ProductController extends AbstractController
 
         return $this->render("product/show.html.twig", ["product" => $product]);
     }
+
+    #[Route("/product/{id}/delete", name: "delete_product", methods: ["POST"])]
+    public function delete(
+        Request $request,
+        Product $product,
+        EntityManagerInterface $entityManager,
+    ): Response {
+        if (
+            $this->isCsrfTokenValid(
+                "delete" . $product->getId(),
+                $request->request->get("_token"),
+            )
+        ) {
+            $entityManager->remove($product);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute("products");
+    }
 }
