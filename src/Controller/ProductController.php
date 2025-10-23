@@ -14,33 +14,15 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class ProductController extends AbstractController
 {
-    // #[Route("/product", name: "app_product")]
-    // public function index(): Response
-    // {
-    //     return $this->render("product/index.html.twig", [
-    //         "controller_name" => "ProductController",
-    //     ]);
-    // }
+    #[Route("/product", name: "products")]
+    public function index(ProductRepository $productRepository): Response
+    {
+        $products = $productRepository->findAll();
 
-    #[Route("/product", name: "create_product")]
-    public function createProduct(
-        EntityManagerInterface $entityManager,
-        ValidatorInterface $validator,
-    ): Response {
-        $product = new Product();
-        $product->setName("Keyboard");
-        $product->setPrice(1999);
-        $product->setDescription("Ergonomic and stylish!");
-
-        $errors = $validator->validate($product);
-        if (count($errors) > 0) {
-            return new Response((string) $errors, 400);
-        }
-
-        $entityManager->persist($product); // Doesn't query yet
-        $entityManager->flush(); // This persists
-
-        return new Response("Saved new product with id " . $product->getId());
+        return $this->render("product/index.html.twig", [
+            "controller_name" => "ProductController",
+            "products" => $products,
+        ]);
     }
 
     #[Route("/product/new", name: "new_product")]
@@ -60,7 +42,7 @@ final class ProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            $this->redirectToRoute("product_show", [
+            return $this->redirectToRoute("product_show", [
                 "id" => $product->getId(),
             ]);
         }

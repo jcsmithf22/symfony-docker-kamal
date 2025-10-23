@@ -13,6 +13,7 @@ import "./styles/input.css";
 import "./styles/navigation.css";
 import "./styles/sidebar.css";
 import "./styles/app.css";
+import "./styles/products.css";
 
 import "./bootstrap.js";
 

@@ -412,7 +412,7 @@
 
 {%- block form_errors -%}
     {%- if errors|length > 0 -%}
-    <ul>
+    <ul class="errors">
         {%- for error in errors -%}
             <li id="{{ id ~ '_error' ~ loop.index }}">{{ error.message }}</li>
         {%- endfor -%}

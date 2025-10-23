@@ -43,3 +43,13 @@
 :where(label) {
     color: var(--color-background-content);
 }
+
+.errors {
+    margin: 0;
+    padding: var(--half-size);
+    padding-inline-start: var(--double-size);
+    border-radius: var(--small-radius);
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+    /*list-style-type: none;*/
+}

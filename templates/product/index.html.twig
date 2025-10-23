@@ -4,12 +4,19 @@
 
 {% block body %}
 <div>
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/app/src/Controller/ProductController.php</code></li>
-        <li>Your template at <code>/app/templates/product/index.html.twig</code></li>
-    </ul>
+    <div class="padding-double">
+        <h1>Products</h1>
+    </div>
+    <div class="divider-block"></div>
+    <div class="grid gap-px products">
+        {% for product in products %}
+            <div class="padding-double"><a href="{{ path('product_show', {'id': product.id}) }}">{{ product.name }}</a></div>
+        {% endfor %}
+        <div class="vstack centered action">
+            <p>Add another product</p>
+            <a href="{{ path('new_product') }}" class="btn">Add</a>
+        </div>
+    </div>
+    {# <div class="divider-block"></div> #}
 </div>
 {% endblock %}

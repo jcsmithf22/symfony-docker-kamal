@@ -1,0 +1,30 @@
+.products {
+    /*background: var(--color-almost-background);*/
+    /*gap: 0;*/
+
+    & > div {
+        background: var(--color-background);
+        aspect-ratio: 1/1;
+        /*outline: 1px solid var(--color-border);*/
+        box-shadow: 0 0 0 1px var(--color-border);
+    }
+
+    & .action {
+        color: var(--color-muted-content);
+    }
+}
+
+.product__title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--half-size);
+    & a {
+        text-decoration: none;
+        color: var(--color-muted-content);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

@@ -29,3 +29,7 @@ body {
 :where(main) {
     width: 100%;
 }
+
+:where(h1) {
+    margin-block-start: var(--quad-size);
+}

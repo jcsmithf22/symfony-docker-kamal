@@ -3,9 +3,26 @@
 {% block title %}Hello ProductController!{% endblock %}
 
 {% block body %}
-<div class="padding-double">
-    <div class="box smallest">
-        {{ form(form) }}
+<div>
+    <div class="padding-double">
+        <h1 class="product__title">
+            <a href="{{ path('products') }}">Products</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>
+            <span>New Product</span></h1>
+    </div>
+    <div class="divider-block"></div>
+    <div class="padding-double">
+        <div class="box smallest">
+            {{ form(form) }}
+        </div>
     </div>
 </div>
+{# <div class="margin-double vstack smallest gap-half">
+    <label>Testing</label>
+    <ul class="errors">
+        <li id="product_price_error1">This value should be greater than or equal to 0.</li>
+        <li id="product_price_error2">This value should be greater than or equal to 0.</li>
+    </ul>
+    <input>
+</div> #}
 {% endblock %}

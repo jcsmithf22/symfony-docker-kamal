@@ -8,7 +8,7 @@
 
     &[data-open="true"] {
         width: var(--sidebar-width);
-        border-inline-end: 1px solid var(--color-almost-background);
+        border-inline-end: 1px solid var(--color-border);
     }
 }
 

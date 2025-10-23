@@ -1,4 +1,5 @@
-:where(button) {
+:where(button),
+a.btn {
     appearance: none;
     border: none;
     width: fit-content;
@@ -9,6 +10,9 @@
     background-color: var(--color-primary);
     color: var(--color-primary-content);
     border-radius: var(--small-radius);
+    cursor: default;
+    text-decoration: none;
+    line-height: 1.1;
 
     &:hover {
         filter: brightness(0.7);
