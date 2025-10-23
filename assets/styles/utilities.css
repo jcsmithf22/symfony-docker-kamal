@@ -97,6 +97,27 @@
     max-width: var(--stack-width, none);
 }
 
+.box {
+    display: block;
+    max-width: var(--box-width, none);
+
+    &.smallest {
+        --box-width: var(--smallest);
+    }
+
+    &.smaller {
+        --box-width: var(--smaller);
+    }
+
+    &.medium {
+        --box-width: var(--medium);
+    }
+
+    &.larger {
+        --box-width: var(--larger);
+    }
+}
+
 .gap-none {
     --gap: 0;
 }

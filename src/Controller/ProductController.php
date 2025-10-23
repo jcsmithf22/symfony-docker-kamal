@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 final class ProductController extends AbstractController
 {
@@ -42,9 +44,30 @@ final class ProductController extends AbstractController
     }
 
     #[Route("/product/new", name: "new_product")]
-    public function new(): Response
-    {
-        return $this->render("product/new.html.twig", []);
+    public function new(
+        Request $request,
+        EntityManagerInterface $entityManager,
+    ): Response {
+        $product = new Product();
+
+        $form = $this->createForm(ProductType::class, $product);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            /** @var Product $product */
+            $product = $form->getData();
+
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+            $this->redirectToRoute("product_show", [
+                "id" => $product->getId(),
+            ]);
+        }
+
+        return $this->render("product/new.html.twig", [
+            "form" => $form,
+        ]);
     }
 
     #[Route("/product/{id}", name: "product_show")]
@@ -56,9 +79,7 @@ final class ProductController extends AbstractController
         // $product = $productRepository->find($id);
 
         if (!$product) {
-            throw $this->createNotFoundException(
-                "No product found for id " . $id,
-            );
+            throw $this->createNotFoundException("No product found for id $id");
         }
 
         return $this->render("product/show.html.twig", ["product" => $product]);

@@ -1,4 +1,5 @@
-:where(input) {
+:where(input),
+:where(textarea) {
     /* Input sizing units */
     --smallest: 16rem;
     --smaller: 24rem;
@@ -14,6 +15,8 @@
     background-color: var(--color-almost-background);
     color: var(--color-primary);
     border-radius: var(--small-radius);
+
+    resize: none;
 
     &:focus-visible {
         outline: var(--color-primary) solid 1px;

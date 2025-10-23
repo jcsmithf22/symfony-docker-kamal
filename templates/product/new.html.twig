@@ -4,16 +4,8 @@
 
 {% block body %}
 <div class="padding-double">
-    <form class="vstack gap-double">
-        <div class="vstack smallest gap-half">
-            <label for="name">Name</label>
-            <input id="name">
-        </div>
-
-        <div class="vstack smallest gap-half">
-            <label for="price">Price</label>
-            <input id="price">
-        </div>
-    </form>
+    <div class="box smallest">
+        {{ form(form) }}
+    </div>
 </div>
 {% endblock %}
