@@ -10,12 +10,12 @@
         <span>{{ product.name }}</span>
     </h1>
     <div class="product__title-controls">
-        <a href="{{ path('edit_product', {'id': product.id}) }}">Edit</a>
+        <a class="btn" href="{{ path('edit_product', {'id': product.id}) }}">Edit</a>
     </div>
 </div>
 <div class="divider-block"></div>
 <section class="padding-double">
     <p>{{ product.description }}</p>
-    <p>Price: {{ product.price }}</p>
+    <p>Price: ${{ (product.price / 100)|number_format(2, '.', '') }}</p>
 </section>
 {% endblock %}
