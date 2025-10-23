@@ -17,14 +17,31 @@
 .product__title {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--half-size);
-    & a {
-        text-decoration: none;
-        color: var(--color-muted-content);
+    gap: var(--default-size);
+    margin-block-start: var(--quad-size);
 
-        &:hover {
-            text-decoration: underline;
+    & h1 {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--half-size);
+        & a {
+            text-decoration: none;
+            color: var(--color-muted-content);
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
+    }
+
+    .product__title-controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--default-size);
     }
 }

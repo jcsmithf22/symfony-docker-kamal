@@ -26,7 +26,7 @@ class ProductType extends AbstractType
             ->add("description", TextareaType::class, [
                 "attr" => ["rows" => 3],
             ])
-            ->add("save", SubmitType::class, ["label" => "Create product"]);
+            ->add("save", SubmitType::class, ["label" => "Save product"]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
