@@ -25,7 +25,7 @@
             <div class="divider-block"></div>
             <div class="padding-inline-double padding-block">
                 <div class="hstack">
-                    <form method="get" action="{{ path('products') }}">
+                    <form method="get" action="{{ path('products') }}" data-turbo-frame="products">
                         <div class="vstack gap-half">
                             <!-- <label for="search">Search Products</label> -->
                             <div class="hstack gap-half">
@@ -38,7 +38,7 @@
                                 >
                                 <button type="submit" class="btn">Search</button>
                                 {% if searchTerm %}
-                                    <a href="{{ path('products') }}" class="btn btn-faint">Clear</a>
+                                    <a href="{{ path('products') }}" class="btn btn-faint" data-turbo-frame="products">Clear</a>
                                 {% endif %}
                             </div>
                         </div>
@@ -60,15 +60,17 @@
     </div>
     <div class="divider-block"></div>
 
-    <div data-list="{{ viewMode == 'list' ? 'true' : 'false' }}" class="grid gap-px products" {{ stimulus_target('view-toggle', 'grid') }}>
-        {% for product in products %}
-            <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}">{{ product.name }}</a></div>
-        {% endfor %}
-        <div class="vstack centered action padding-double">
-            <p>Add another product</p>
-            <a href="{{ path('new_product') }}" class="btn">Add</a>
+    <turbo-frame id="products">
+        <div data-filtered="{{ searchTerm ? 'true' : 'false' }}" data-list="{{ viewMode == 'list' ? 'true' : 'false' }}" class="grid gap-px products" {{ stimulus_target('view-toggle', 'grid') }}>
+            {% for product in products %}
+                <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}">{{ product.name }}</a></div>
+            {% endfor %}
+            <div class="vstack centered action padding-double">
+                <p>Add another product</p>
+                <a href="{{ path('new_product') }}" class="btn">Add</a>
+            </div>
         </div>
-    </div>
+    </turbo-frame>
     <section>
     </section>
 </div>
