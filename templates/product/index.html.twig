@@ -3,7 +3,7 @@
 {% block title %}Products{% endblock %}
 
 {% block body %}
-<div class="products__page" {{ stimulus_controller('view-toggle') }}>
+<div class="products__page" {{ stimulus_controller('view-toggle search-focus') }}>
     <div {{ stimulus_controller('disclosure', {openLabel: 'Controls', closedLabel: 'Controls'}) }}>
         <div class="padding-double product__title">
             <h1>
@@ -35,6 +35,7 @@
                                     name="search"
                                     value="{{ searchTerm|default('') }}"
                                     placeholder="Enter product name..."
+                                    {{ stimulus_target('search-focus', 'searchInput') }}
                                 >
                                 <button type="submit" class="btn">Search</button>
                                 <a href="{{ path('products') }}" class="btn btn-faint" data-turbo-frame="products" data-filtered-show>Clear</a>
@@ -62,7 +63,7 @@
     <turbo-frame id="products">
         <div data-filtered="{{ searchTerm ? 'true' : 'false' }}" data-list="{{ viewMode == 'list' ? 'true' : 'false' }}" class="grid gap-px products" {{ stimulus_target('view-toggle', 'grid') }}>
             {% for product in products %}
-                <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}">{{ product.name }}</a></div>
+                <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}" data-turbo-frame="_top">{{ product.name }}</a></div>
             {% endfor %}
             <div class="vstack centered action padding-double">
                 <p>Add another product</p>
