@@ -49,7 +49,7 @@ builder:
 env:
     clear:
         DB_HOST: symfony-docker-kamal-postgres
-        SERVER_NAME: :80
+        SERVER_NAME: ":80"
         DEFAULT_URI: https://demo.jcs.works
         MERCURE_URL: http://php/.well-known/mercure
         MERCURE_PUBLIC_URL: https://demo.jcs.works/.well-known/mercure
