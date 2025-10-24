@@ -46,7 +46,7 @@ builder:
 #
 env:
     clear:
-        DB_HOST: symfony-docker-kamal-postgres
+        DB_HOST: 127.0.0.1
         SERVER_NAME: :80
         DEFAULT_URI: https://demo.jcs.works
         MERCURE_URL: http://php/.well-known/mercure
@@ -93,7 +93,7 @@ accessories:
     postgres:
         image: postgres:17
         host: 5.161.192.139
-        # port: "127.0.0.1:5432:5432"
+        port: "127.0.0.1:5432:5432"
         env:
             clear:
                 POSTGRES_USER: "app"
