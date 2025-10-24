@@ -20,14 +20,18 @@ export default class extends Controller {
 
     updateButtonState() {
         const isOpen = this.detailsTarget.open;
-        
+
         // Update button text
         this.buttonTarget.textContent = isOpen
             ? this.openLabelValue
             : this.closedLabelValue;
-        
+
         // Set accessibility and state attributes
-        this.buttonTarget.setAttribute('aria-expanded', isOpen);
-        this.buttonTarget.setAttribute('data-state', isOpen ? 'open' : 'closed');
+        this.buttonTarget.setAttribute("aria-expanded", isOpen);
+        this.buttonTarget.dataset.state = isOpen ? "open" : "closed";
+        // this.buttonTarget.setAttribute(
+        //     "data-state",
+        //     isOpen ? "open" : "closed",
+        // );
     }
 }
