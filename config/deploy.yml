@@ -21,7 +21,7 @@ proxy:
     ssl: true
     host: demo.jcs.works
     healthcheck:
-        path: /product
+        path: /
     # Proxy connects to your container on port 80 by default.
     # app_port: 3000
 
