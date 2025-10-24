@@ -23,7 +23,13 @@ export default class extends Controller {
 
     handleFrameLoad = (event) => {
         if (event.target.id === "products") {
-            this.focusAndSelectSearch();
+            const searchInput = this.searchInputTarget;
+            if (searchInput && searchInput.value.trim() === "") {
+                searchInput.focus();
+                searchInput.select();
+            } else {
+                searchInput.focus();
+            }
         }
     };
 
