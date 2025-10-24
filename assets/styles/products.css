@@ -46,6 +46,10 @@ button[data-list="false"] {
     }
 }
 
+.products__page:has([data-filtered="false"]) [data-filtered-show] {
+    display: none;
+}
+
 .product__title {
     display: flex;
     flex-direction: row;
