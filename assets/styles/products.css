@@ -26,9 +26,9 @@
     }
 }
 
-.products__page:has([data-filtered="false"]) [data-filtered-show] {
-    display: none;
-}
+/* .products__page:has([data-filtered="false"]) [data-filtered-show] { */
+/*     display: none; */
+/* } */
 
 .product__title {
     display: flex;

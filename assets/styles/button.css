@@ -25,6 +25,7 @@
     &:focus-visible {
         outline: var(--color-primary) solid 1px;
         outline-offset: 2px;
+        z-index: 100;
     }
 
     &.btn-danger {
@@ -36,6 +37,13 @@
         background-color: var(--color-almost-background);
         color: var(--color-primary);
         /* border: 1px solid var(--color-primary); */
+    }
+
+    &.btn-square {
+        height: 3rem;
+        padding-inline: var(--half-size);
+        /* padding: 0 !important; */
+        aspect-ratio: 1/1;
     }
 
     &.btn-toggle {
@@ -77,5 +85,26 @@ button[data-toggle="false"] {
 
     svg:nth-child(2) {
         display: block;
+    }
+}
+
+.btn__group {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    gap: 1px;
+
+    & > * {
+        border-radius: unset;
+    }
+
+    & > *:first-child {
+        border-top-left-radius: var(--small-radius);
+        border-bottom-left-radius: var(--small-radius);
+    }
+
+    & > *:last-child {
+        border-top-right-radius: var(--small-radius);
+        border-bottom-right-radius: var(--small-radius);
     }
 }

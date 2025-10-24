@@ -1,3 +1,11 @@
+:where(input) {
+    height: 3rem;
+}
+
+:where(textarea) {
+    padding-block: var(--default-size);
+}
+
 :where(input),
 :where(textarea) {
     /* Input sizing units */
@@ -9,7 +17,6 @@
     border: none;
     width: var(--input-width, 100%);
     padding: 0;
-    padding-block: var(--default-size);
     padding-inline: var(--default-size);
     margin: 0;
     background-color: var(--color-almost-background);

@@ -27,7 +27,7 @@
             <summary style="display: none;"></summary>
             <div class="divider-block"></div>
             <div class="padding-inline-double padding-block">
-                <div class="hstack space-between">
+                <div class="hstack space-between gap-half">
                     <form class="box medium" method="get" action="{{ path('products') }}" data-turbo-frame="products" data-turbo-action="advance">
                         <div class="vstack gap-half">
                             <!-- <label for="search">Search Products</label> -->
@@ -40,15 +40,21 @@
                                     placeholder="Enter product name..."
                                     {{ stimulus_target('search-focus', 'searchInput') }}
                                 >
-                                <button type="submit" class="btn">Search</button>
-                                <a href="{{ path('products') }}" class="btn btn-faint" data-turbo-frame="products" data-turbo-action="advance" data-filtered-show>Clear</a>
+                                <div class="btn__group">
+                                    <button type="submit" class="btn btn-square btn-faint">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                                    </button>
+                                    <a href="{{ path('products') }}" class="btn btn-faint btn-square" data-turbo-frame="products" data-turbo-action="advance" data-filtered-show-disabled>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </form>
                     <div class="hstack">
                         <button
                             type="button"
-                            class="btn btn-faint"
+                            class="btn btn-faint btn-square"
                             data-toggle="{{ viewMode == 'list' ? 'true' : 'false' }}"
                             {{ stimulus_target('view-toggle', 'button') }}
                             {{ stimulus_action('view-toggle', 'toggle') }}
