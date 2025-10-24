@@ -31,13 +31,21 @@ class ProductRepository extends ServiceEntityRepository
     //        ;
     //    }
 
-    //    public function findOneBySomeField($value): ?Product
-    //    {
-    //        return $this->createQueryBuilder('p')
-    //            ->andWhere('p.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    /**
+     * @return Product[] Returns an array of Product objects filtered by name
+     */
+    public function findByNameSearch(?string $searchTerm): array
+    {
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->orderBy('p.name', 'ASC');
+
+        if ($searchTerm) {
+            $queryBuilder
+                ->andWhere('LOWER(p.name) LIKE LOWER(:searchTerm)')
+                ->setParameter('searchTerm', '%' . $searchTerm . '%');
+        }
+
+        $query = $queryBuilder->getQuery();
+        return $query->getResult();
+    }
 }

@@ -9,6 +9,7 @@ export default class extends Controller {
     };
 
     connect() {
+        // Set initial button text based on current state
         this.updateButtonState();
     }
 

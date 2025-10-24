@@ -14,13 +14,15 @@ use Symfony\Component\HttpFoundation\Request;
 final class ProductController extends AbstractController
 {
     #[Route("/", name: "products")]
-    public function index(ProductRepository $productRepository): Response
+    public function index(ProductRepository $productRepository, Request $request): Response
     {
-        $products = $productRepository->findAll();
+        $searchTerm = $request->query->get('search');
+        $products = $productRepository->findByNameSearch($searchTerm);
 
         return $this->render("product/index.html.twig", [
             "controller_name" => "ProductController",
             "products" => $products,
+            "searchTerm" => $searchTerm,
         ]);
     }
 

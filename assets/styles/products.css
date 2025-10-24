@@ -9,8 +9,20 @@
         box-shadow: 0 0 0 1px var(--color-border);
     }
 
+    &[data-list="true"] {
+        grid-template-columns: 1fr;
+    }
+
+    &[data-list="true"] > div {
+        aspect-ratio: unset;
+    }
+
     & .action {
         color: var(--color-muted-content);
+    }
+
+    & p {
+        margin: 0;
     }
 }
 

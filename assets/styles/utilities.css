@@ -130,6 +130,10 @@
     row-gap: var(--gap, var(--default-size));
     column-gap: var(--gap, var(--default-size));
     max-width: var(--stack-width, none);
+
+    & > * {
+        width: 100%;
+    }
 }
 
 .vstack {

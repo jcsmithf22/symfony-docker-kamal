@@ -3,35 +3,58 @@
 {% block title %}Products{% endblock %}
 
 {% block body %}
-<div {{ stimulus_controller('disclosure', {openLabel: 'Filters', closedLabel: 'Filters'}) }}>
+<div {{ stimulus_controller('disclosure', {openLabel: 'Controls', closedLabel: 'Controls'}) }}>
     <div class="padding-double product__title">
         <h1>
             <span>Products</span>
         </h1>
         <div class="product__title-controls">
-            <button
+             <button
                 class="btn-faint btn-toggle"
                 {{ stimulus_action('disclosure', 'toggle') }}
                 {{ stimulus_target('disclosure', 'button') }}
             >
-                Filters
+                Controls
             </button>
         </div>
     </div>
 
-    <details {{ stimulus_target('disclosure', 'details') }}>
+    <details {{ stimulus_target('disclosure', 'details') }} {% if searchTerm %}open{% endif %}>
         <summary style="display: none;"></summary>
         <div class="divider-block"></div>
-        <div class="padding-inline-double padding-block">Hidden content here</div>
+        <div class="padding-inline-double padding-block">
+        <div class="hstack">
+            <form method="get" action="{{ path('products') }}">
+                <div class="vstack gap-half">
+                    <!-- <label for="search">Search Products</label> -->
+                    <div class="hstack gap-half">
+                        <input
+                            type="text"
+                            id="search"
+                            name="search"
+                            value="{{ searchTerm|default('') }}"
+                            placeholder="Enter product name..."
+                        >
+                        <button type="submit" class="btn">Search</button>
+                        {% if searchTerm %}
+                            <a href="{{ path('products') }}" class="btn btn-faint">Clear</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </form>
+            <div></div>
+        </div>
+
+        </div>
     </details>
 </div>
 <div class="divider-block"></div>
 
-<div class="grid gap-px products">
+<div data-list="false" class="grid gap-px products">
     {% for product in products %}
         <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}">{{ product.name }}</a></div>
     {% endfor %}
-    <div class="vstack centered action">
+    <div class="vstack centered action padding-double">
         <p>Add another product</p>
         <a href="{{ path('new_product') }}" class="btn">Add</a>
     </div>

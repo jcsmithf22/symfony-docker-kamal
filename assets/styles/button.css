@@ -1,5 +1,8 @@
 :where(button),
 .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     appearance: none;
     border: none;
     width: fit-content;
@@ -13,6 +16,7 @@
     cursor: default;
     text-decoration: none;
     line-height: 1.1;
+    text-align: center;
 
     &:hover {
         filter: brightness(0.7);
