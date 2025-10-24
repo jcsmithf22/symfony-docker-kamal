@@ -49,7 +49,6 @@ env:
         DB_HOST: symfony-docker-kamal-postgres
         SERVER_NAME: :80
         DEFAULT_URI: https://demo.jcs.works
-        DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:5432/${POSTGRES_DB}?serverVersion=${POSTGRES_VERSION:-17}&charset=${POSTGRES_CHARSET:-utf8}
         MERCURE_URL: http://php/.well-known/mercure
         MERCURE_PUBLIC_URL: https://demo.jcs.works/.well-known/mercure
         STABILITY: stable
@@ -59,6 +58,7 @@ env:
         - MERCURE_PUBLISHER_JWT_KEY
         - MERCURE_SUBSCRIBER_JWT_KEY
         - MERCURE_JWT_SECRET
+        - APP_SECRET
 
 # Aliases are triggered with "bin/kamal <alias>". You can overwrite arguments on invocation:
 # "bin/kamal app logs -r job" will tail logs from the first server in the job section.
