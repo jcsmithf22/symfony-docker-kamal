@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 final class ProductController extends AbstractController
 {
-    #[Route("/product", name: "products")]
+    #[Route("/", name: "products")]
     public function index(ProductRepository $productRepository): Response
     {
         $products = $productRepository->findAll();
