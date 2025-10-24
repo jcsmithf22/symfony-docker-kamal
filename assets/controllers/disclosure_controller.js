@@ -9,17 +9,24 @@ export default class extends Controller {
     };
 
     connect() {
-        this.updateButtonLabel();
+        this.updateButtonState();
     }
 
     toggle() {
         this.detailsTarget.open = !this.detailsTarget.open;
-        this.updateButtonLabel();
+        this.updateButtonState();
     }
 
-    updateButtonLabel() {
-        this.buttonTarget.textContent = this.detailsTarget.open
+    updateButtonState() {
+        const isOpen = this.detailsTarget.open;
+        
+        // Update button text
+        this.buttonTarget.textContent = isOpen
             ? this.openLabelValue
             : this.closedLabelValue;
+        
+        // Set accessibility and state attributes
+        this.buttonTarget.setAttribute('aria-expanded', isOpen);
+        this.buttonTarget.setAttribute('data-state', isOpen ? 'open' : 'closed');
     }
 }

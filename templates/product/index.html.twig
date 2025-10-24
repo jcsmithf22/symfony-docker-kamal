@@ -3,13 +3,14 @@
 {% block title %}Products{% endblock %}
 
 {% block body %}
-<div {{ stimulus_controller('disclosure', {openLabel: 'Hide', closedLabel: 'Filters'}) }}>
+<div {{ stimulus_controller('disclosure', {openLabel: 'Filters', closedLabel: 'Filters'}) }}>
     <div class="padding-double product__title">
         <h1>
             <span>Products</span>
         </h1>
         <div class="product__title-controls">
             <button
+                class="btn-faint btn-toggle"
                 {{ stimulus_action('disclosure', 'toggle') }}
                 {{ stimulus_target('disclosure', 'button') }}
             >
@@ -21,7 +22,7 @@
     <details {{ stimulus_target('disclosure', 'details') }}>
         <summary style="display: none;"></summary>
         <div class="divider-block"></div>
-        <p>Hidden content here</p>
+        <div class="padding-inline-double padding-block">Hidden content here</div>
     </details>
 </div>
 <div class="divider-block"></div>

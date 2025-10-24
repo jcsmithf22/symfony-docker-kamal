@@ -27,4 +27,31 @@
         background-color: var(--color-error);
         color: var(--color-primary-content);
     }
+
+    &.btn-faint {
+        background-color: var(--color-almost-background);
+        color: var(--color-primary);
+        /* border: 1px solid var(--color-primary); */
+    }
+
+    &.btn-toggle {
+        position: relative;
+        padding-inline-start: var(--double-size);
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: var(--default-size);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background-color: var(--color-success);
+        }
+
+        &[data-state="open"]::before {
+            background-color: var(--color-error);
+        }
+    }
 }
