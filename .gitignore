@@ -16,5 +16,4 @@
 /assets/vendor/
 ###< symfony/asset-mapper ###
 .php-cs-fixer.cache
-
-/.kamal/secrets
+.kamal/secrets
