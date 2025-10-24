@@ -19,7 +19,7 @@ export default class extends Controller {
     applyViewMode(mode) {
         const state = (mode === "list").toString();
         this.gridTarget.dataset.list = state;
-        this.buttonTarget.dataset.list = state;
+        this.buttonTarget.dataset.toggle = state;
         // this.buttonTarget.setAttribute("data-list", state);
     }
 

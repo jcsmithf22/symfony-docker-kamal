@@ -4,7 +4,10 @@
 
 {% block body %}
 <div class="products__page" {{ stimulus_controller('view-toggle search-focus') }}>
-    <div {{ stimulus_controller('disclosure', {openLabel: 'Controls', closedLabel: 'Controls'}) }}>
+    <div
+        {{ stimulus_controller('disclosure', {openLabel: 'Controls', closedLabel: 'Controls'}) }}
+        {{ stimulus_action('disclosure', 'open', 'search-focus:open-search@window') }}
+    >
         <div class="padding-double product__title">
             <h1>
                 <span>Products</span>
@@ -25,7 +28,7 @@
             <div class="divider-block"></div>
             <div class="padding-inline-double padding-block">
                 <div class="hstack space-between">
-                    <form class="box medium" method="get" action="{{ path('products') }}" data-turbo-frame="products">
+                    <form class="box medium" method="get" action="{{ path('products') }}" data-turbo-frame="products" data-turbo-action="advance">
                         <div class="vstack gap-half">
                             <!-- <label for="search">Search Products</label> -->
                             <div class="hstack gap-half">
@@ -38,7 +41,7 @@
                                     {{ stimulus_target('search-focus', 'searchInput') }}
                                 >
                                 <button type="submit" class="btn">Search</button>
-                                <a href="{{ path('products') }}" class="btn btn-faint" data-turbo-frame="products" data-filtered-show>Clear</a>
+                                <a href="{{ path('products') }}" class="btn btn-faint" data-turbo-frame="products" data-turbo-action="advance" data-filtered-show>Clear</a>
                             </div>
                         </div>
                     </form>
@@ -46,7 +49,7 @@
                         <button
                             type="button"
                             class="btn btn-faint"
-                            data-list="{{ viewMode == 'list' ? 'true' : 'false' }}"
+                            data-toggle="{{ viewMode == 'list' ? 'true' : 'false' }}"
                             {{ stimulus_target('view-toggle', 'button') }}
                             {{ stimulus_action('view-toggle', 'toggle') }}
                             >
@@ -60,10 +63,10 @@
     </div>
     <div class="divider-block"></div>
 
-    <turbo-frame id="products">
+    <turbo-frame id="products" target="_top">
         <div data-filtered="{{ searchTerm ? 'true' : 'false' }}" data-list="{{ viewMode == 'list' ? 'true' : 'false' }}" class="grid gap-px products" {{ stimulus_target('view-toggle', 'grid') }}>
             {% for product in products %}
-                <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}" data-turbo-frame="_top">{{ product.name }}</a></div>
+                <div class="padding-double"><a href="{{ path('product_show', {id: product.id}) }}">{{ product.name }}</a></div>
             {% endfor %}
             <div class="vstack centered action padding-double">
                 <p>Add another product</p>

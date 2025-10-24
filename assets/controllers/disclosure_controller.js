@@ -9,8 +9,14 @@ export default class extends Controller {
     };
 
     connect() {
-        // Set initial button text based on current state
         this.updateButtonState();
+    }
+
+    open() {
+        if (!this.detailsTarget.open) {
+            this.detailsTarget.open = true;
+            this.updateButtonState();
+        }
     }
 
     toggle() {

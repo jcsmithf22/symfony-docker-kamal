@@ -16,6 +16,7 @@ export default class extends Controller {
     handleKeydown = (event) => {
         if (event.key === "/" && !this.isInputFocused()) {
             event.preventDefault();
+            this.dispatch("open-search");
             this.focusAndSelectSearch();
         }
     };

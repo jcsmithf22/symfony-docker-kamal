@@ -59,3 +59,23 @@
         }
     }
 }
+
+button[data-toggle="true"] {
+    svg:nth-child(1) {
+        display: block;
+    }
+
+    svg:nth-child(2) {
+        display: none;
+    }
+}
+
+button[data-toggle="false"] {
+    svg:nth-child(1) {
+        display: none;
+    }
+
+    svg:nth-child(2) {
+        display: block;
+    }
+}

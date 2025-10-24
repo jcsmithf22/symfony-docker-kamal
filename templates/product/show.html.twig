@@ -10,8 +10,8 @@
         <span>{{ product.name }}</span>
     </h1>
     <div class="product__title-controls">
-        <a class="btn" href="{{ path('edit_product', {'id': product.id}) }}">Edit</a>
-        <form method="post" action="{{ path('delete_product', {'id': product.id}) }}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this product?')">
+        <a class="btn btn-faint" href="{{ path('edit_product', {id: product.id}) }}">Edit</a>
+        <form method="post" action="{{ path('delete_product', {id: product.id}) }}" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this product?')">
             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ product.id) }}">
             <button type="submit" class="btn btn-danger">Delete</button>
         </form>
