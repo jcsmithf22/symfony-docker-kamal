@@ -3,10 +3,10 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
     static targets = ["details", "button"];
-    static values = {
-        openLabel: String,
-        closedLabel: String,
-    };
+    // static values = {
+    //     openLabel: String,
+    //     closedLabel: String,
+    // };
 
     connect() {
         this.updateButtonState();
@@ -28,16 +28,12 @@ export default class extends Controller {
         const isOpen = this.detailsTarget.open;
 
         // Update button text
-        this.buttonTarget.textContent = isOpen
-            ? this.openLabelValue
-            : this.closedLabelValue;
+        // this.buttonTarget.textContent = isOpen
+        //     ? this.openLabelValue
+        //     : this.closedLabelValue;
 
         // Set accessibility and state attributes
         this.buttonTarget.setAttribute("aria-expanded", isOpen);
         this.buttonTarget.dataset.state = isOpen ? "open" : "closed";
-        // this.buttonTarget.setAttribute(
-        //     "data-state",
-        //     isOpen ? "open" : "closed",
-        // );
     }
 }

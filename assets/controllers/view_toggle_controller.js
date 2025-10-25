@@ -20,7 +20,6 @@ export default class extends Controller {
         const state = (mode === "list").toString();
         this.gridTarget.dataset.list = state;
         this.buttonTarget.dataset.toggle = state;
-        // this.buttonTarget.setAttribute("data-list", state);
     }
 
     getCookie(name) {
@@ -34,7 +33,7 @@ export default class extends Controller {
         const cookie = `${name}=${value}; expires=${expires}; path=/; samesite=strict`;
         document.cookie =
             window.location.protocol === "https:"
-                ? cookie + "; secure"
+                ? "__Host-" + cookie + "; secure"
                 : cookie;
     }
 }
