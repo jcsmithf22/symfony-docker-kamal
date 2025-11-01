@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
     static targets = ["searchInput"];
+    static values = { frameId: String };
 
     connect() {
         this.shouldClear = false;
@@ -27,8 +28,10 @@ export default class extends Controller {
     };
 
     handleFrameLoad = (event) => {
-        if (event.target.id === "products") {
+        if (event.target.id === this.frameIdValue) {
             const searchInput = this.searchInputTarget;
+            if (!searchInput) return;
+            
             if (this.shouldClear) {
                 searchInput.value = "";
                 searchInput.focus();
