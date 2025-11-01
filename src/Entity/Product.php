@@ -23,8 +23,11 @@ class Product
     #[Assert\GreaterThanOrEqual(0)]
     private ?int $price = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $Category = null;
 
     public function getId(): ?int
     {
@@ -63,6 +66,18 @@ class Product
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getCategory(): ?int
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?int $Category): static
+    {
+        $this->Category = $Category;
 
         return $this;
     }

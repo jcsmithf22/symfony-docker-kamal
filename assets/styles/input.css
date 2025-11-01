@@ -1,4 +1,5 @@
 :where(input),
+:where(select),
 :where(textarea) {
     /* Input sizing units */
     --smallest: 16rem;
@@ -57,6 +58,6 @@
     padding-block: var(--default-size);
 }
 
-:where(input) {
+:where(input), :where(select) {
     height: 3rem;
 }
