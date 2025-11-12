@@ -19,12 +19,14 @@ final class ProductController extends AbstractController
         $searchTerm = $request->query->get('search');
         $products = $productRepository->findByNameSearch($searchTerm);
         $viewMode = $request->cookies->get('view_mode', 'grid');
+        $categories = ProductType::getCategories();
 
         return $this->render("product/index.html.twig", [
             "controller_name" => "ProductController",
             "products" => $products,
             "searchTerm" => $searchTerm,
             "viewMode" => $viewMode,
+            "categories" => $categories,
         ]);
     }
 

@@ -4,6 +4,7 @@
     --lch-gray: 96% 0.005 96;
     --lch-gray-dark: 92% 0.005 96;
     --lch-gray-darker: 75% 0.005 96;
+    --lch-gray-muted: 50% 0.005 96;
     --lch-gray-darkest: 25% 0.005 96;
 
     --red-100: oklch(0.97 0.02 25);
@@ -57,6 +58,6 @@
         --color-background-faint: oklch(var(--lch-black) / 0.1);
         --color-primary: oklch(var(--lch-black));
         --color-primary-content: oklch(var(--lch-white));
-        --color-muted-content: oklch(var(--lch-gray-darkest));
+        --color-muted-content: oklch(var(--lch-gray-muted));
     }
 }

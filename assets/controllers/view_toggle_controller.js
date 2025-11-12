@@ -23,18 +23,14 @@ export default class extends Controller {
     }
 
     getCookie(name) {
-        const cookieName =
-            window.location.protocol === "https:" ? `__Host-${name}` : name;
         const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${cookieName}=`);
+        const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return parts.pop().split(";").shift();
     }
 
     setCookie(name, value) {
         const expires = new Date(Date.now() + 365 * 864e5).toUTCString();
-        const cookieName =
-            window.location.protocol === "https:" ? `__Host-${name}` : name;
-        const cookie = `${cookieName}=${value}; expires=${expires}; path=/; samesite=strict`;
+        const cookie = `${name}=${value}; expires=${expires}; path=/; samesite=strict`;
         document.cookie =
             window.location.protocol === "https:"
                 ? cookie + "; secure"

@@ -7,6 +7,7 @@
 import "./styles/_reset.css";
 import "./styles/colors.css";
 import "./styles/utilities.css";
+import "./styles/font.css";
 import "./styles/base.css";
 import "./styles/button.css";
 import "./styles/input.css";

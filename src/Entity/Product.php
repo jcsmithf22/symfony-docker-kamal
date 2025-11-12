@@ -29,6 +29,9 @@ class Product
     #[ORM\Column(nullable: true)]
     private ?int $Category = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $minimum_price = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,6 +81,18 @@ class Product
     public function setCategory(?int $Category): static
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getMinimumPrice(): ?int
+    {
+        return $this->minimum_price;
+    }
+
+    public function setMinimumPrice(?int $minimum_price): static
+    {
+        $this->minimum_price = $minimum_price;
 
         return $this;
     }
